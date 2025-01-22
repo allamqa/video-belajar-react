@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#auth-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #FCF8CA;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px 13%;
+    transition: all .40s ease;
+}
+
+.logo img{
+    height: auto;
+    width: 160px;
+    max-width: 100%;
+}
+
+.menu-icon{
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon a{
+    margin-left: 20px;
+    font-size: 15px;
+    color: var(--text-color);
+    transition: all .40s ease;
+    margin-right: 15px;
+}
+
+.menu-icon img{
+    height: 30px;
+    width: auto;
+    max-height: 100%;
+}
+
+
+.wrapper-login{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: #fff;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:25px;
+
+}
+
+.wrapper-login .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper-login .form-box h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.wrapper-login .form-box p{
+    font-size: .8em;
+    color: #333333AD;
+    text-align: center;
+}
+
+.wrapper-login .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.wrapper-login .input-box label{
+    position: absolute;
+    top:20px;
+    left:5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.wrapper-login .input-box input:focus~label,
+.wrapper-login .input-box input:valid~label{
+    top: -5px;
+}
+
+.wrapper-login .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.wrapper-login .input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.wrapper-login .remember-forgot{
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-login .remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+
+}
+
+.wrapper-login .remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+}
+
+.wrapper-login .remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.wrapper-login button{
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: .9em;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.wrapper-login .btn-login{
+    background: #3ECF4C;
+    color: #fff;
+}
+
+.wrapper-login .btn-register{
+    background: #E2FCD9CC;
+    color: #3ECF4C;
+}
+
+.wrapper-login button.btn-login-google{
+    background: #fff;
+    color: #252525ad;
+    border: 1px solid #F1F1F1;
+}
+
+
+
+.wrapper-login button.btn-login-google span.icon{
+    color:red;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-top: 10px;
+    position: relative;
+    top:3px;
+    left:-7px;
+}
+
+@media(max-width:700px){
+    
+    .wrapper-login{
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border: 2px solid rgba(255, 255, 255, .5);
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    
+    }
+
+    .wrapper-login .form-box h2{
+        font-size: 1.3em;
+    }
+    
+    .wrapper-login .form-box p{
+        font-size: .5em;
+    }
+
+    .wrapper-login .input-box{
+        height: 40px;
+    }
+    
+    .wrapper-login .input-box label{
+        font-size: .8em;
+    }
+
+    .wrapper-login .input-box input{
+        font-size: .8em;
+    }
+    
+    .wrapper-login .input-box .icon{
+        font-size: 1em;
+        line-height: 45px;
+    }
+
+
+    .remember-forgot{
+        font-size: .8em;
+    }
+
+    button{
+        
+        height: 30px;
+        
+        font-size: .8em;
+        
+    }
+    
+   
+    
+
+
+
+}
+
