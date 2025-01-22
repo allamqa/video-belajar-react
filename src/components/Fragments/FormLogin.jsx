@@ -8,7 +8,7 @@ const FormLogin = () =>{
     return(
         <form action="">
                 <InputForm name="envelope" variant="solid" type="mail" label="Email"></InputForm>
-                <InputForm name="lock-alt" variant="solid" label="Password"></InputForm>
+                <InputForm name="lock-alt" variant="solid" type="password" label="Password"></InputForm>
                 <LabelRemember></LabelRemember>
                 <ButtonForm link="/home" variant="btn-login">Masuk</ButtonForm>
                 <ButtonForm link="/register" variant="btn-register">Daftar</ButtonForm>
