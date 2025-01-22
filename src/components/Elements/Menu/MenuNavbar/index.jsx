@@ -1,5 +1,6 @@
 import 'boxicons'
 import Icon from "../../Icon";
+import { Link } from 'react-router-dom';
 
 const MenuNav = () =>{
 
@@ -7,7 +8,7 @@ const MenuNav = () =>{
         <div className="menu-icon">
         <div className="menu-nav">
         <a href="#">Kategori</a>
-        <a href="#"><img src="./img/Avatar.png" alt=""></img></a>
+        <Link to="/" ><img src="./img/Avatar.png" alt=""></img></Link>
         </div>
         <div id="icon-navbar"><Icon  name="menu"></Icon></div>
     </div>

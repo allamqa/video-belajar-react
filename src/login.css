@@ -107,7 +107,7 @@ header{
 
 .wrapper-login .input-box input:focus~label,
 .wrapper-login .input-box input:valid~label{
-    top: -5px;
+    top: 5px;
 }
 
 .wrapper-login .input-box input{

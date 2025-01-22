@@ -12,8 +12,8 @@ const FormRegister = () =>{
                 <InputForm name="lock-alt" variant="solid" label="Password"></InputForm>
                 <InputForm name="lock-alt" variant="solid" label="Konfirmasi Password"></InputForm>
                 <LabelRemember></LabelRemember>
-                <ButtonForm variant="btn-login">Daftar</ButtonForm>
-                <ButtonForm variant="btn-register">Masuk</ButtonForm>
+                <ButtonForm link="/home" variant="btn-login">Daftar</ButtonForm>
+                <ButtonForm link="/" variant="btn-register">Masuk</ButtonForm>
                 <p>atau</p>
                 <ButtonForm variant="btn-login-google"><span className="icon"><Icon  type="logo" name="google-plus" color="red"></Icon></span>Daftar dengan Google</ButtonForm>
             </form>
