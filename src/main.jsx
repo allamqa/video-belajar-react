@@ -9,15 +9,15 @@ import RegisterPage from './pages/register.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <HomePage></HomePage>
-  },
-  {
-    path:"/login",
     element: <LoginPage></LoginPage>
   },
   {
     path:"/register",
     element: <RegisterPage></RegisterPage>
+  },
+  {
+    path:"/home",
+    element: <HomePage></HomePage>
   }
 ]);
 
