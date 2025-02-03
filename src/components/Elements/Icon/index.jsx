@@ -1,9 +1,7 @@
 const Icon = (props) =>{
-    const{type,name,color,variant} = props;
+    const{type,logo,color,variant} = props;
     return(
-        <>
-        <a href="#"><box-icon className={variant} color={color} type={type} name={name}></box-icon></a>
-        </>
+        <a href="#"><box-icon className={variant} color={color} type={type} name={logo}></box-icon></a>
     );
 }
 

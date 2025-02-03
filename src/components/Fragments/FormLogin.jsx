@@ -4,16 +4,26 @@ import ButtonForm from "../Elements/Button";
 import Icon from "../Elements/Icon";
 
 const FormLogin = () =>{
+
+    const handleLogin = (event) =>{
+        event.preventDefault();
+        const loginData = {
+            email: event.target.email.value,
+            password: event.target.password.value
+          };
+         localStorage.setItem('loginData', JSON.stringify(loginData));
+        window.location.href="/home";
+    };
     
     return(
-        <form action="">
-                <InputForm name="envelope" variant="solid" type="mail" label="Email"></InputForm>
-                <InputForm name="lock-alt" variant="solid" type="password" label="Password"></InputForm>
+        <form onSubmit={handleLogin}>
+                <InputForm logo="envelope" name="email" variant="solid" type="mail" label="Email"></InputForm>
+                <InputForm logo="lock-alt" name="password" variant="solid" type="password" label="Password"></InputForm>
                 <LabelRemember></LabelRemember>
-                <ButtonForm link="/home" variant="btn-login">Masuk</ButtonForm>
-                <ButtonForm link="/register" variant="btn-register">Daftar</ButtonForm>
+                <ButtonForm  variant="btn-login">Masuk</ButtonForm>
+                <ButtonForm variant="btn-register">Daftar</ButtonForm>
                 <p>atau</p>
-                <ButtonForm variant="btn-login-google"><span className="icon"><Icon  type="logo" name="google-plus" color="red"></Icon></span>Masuk dengan Google</ButtonForm>
+                <ButtonForm variant="btn-login-google" type="submit"><span className="icon"><Icon  type="logo" logo="google-plus" color="red"></Icon></span>Masuk dengan Google</ButtonForm>
             </form>
     );
 }

@@ -12,11 +12,11 @@ const Card = (props) =>{
                     <h6>{waktu}</h6>
                     <div className="rating">
                         <div className="star">
-                            <a href="#"><Icon color="#f66962" type="solid" name="star"></Icon></a>
-                            <a href="#"><Icon color="#f66962" type="solid" name="star"></Icon></a>
-                            <a href="#"><Icon color="#f66962" type="solid" name="star"></Icon></a>
-                            <a href="#"><Icon color="#f66962" type="solid" name="star"></Icon></a>
-                            <a href="#"><Icon color="#f66962" type="solid" name="star"></Icon></a>
+                            <a href="#"><Icon color="#f66962" type="solid" logo="star"></Icon></a>
+                            <a href="#"><Icon color="#f66962" type="solid" logo="star"></Icon></a>
+                            <a href="#"><Icon color="#f66962" type="solid" logo="star"></Icon></a>
+                            <a href="#"><Icon color="#f66962" type="solid" logo="star"></Icon></a>
+                            <a href="#"><Icon color="#f66962" type="solid" logo="star"></Icon></a>
                         </div>
                         <div className="review">
                             <p>5 Reviews</p>

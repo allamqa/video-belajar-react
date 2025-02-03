@@ -4,11 +4,11 @@ import Label from "./Label";
 
 
 const InputForm = (props) =>{
-    const{label, type,name,variant} = props;
+    const{label,name, type,logo,variant} = props;
     return(
         <div className="input-box">
-             <span className="icon"> <Icon  type={variant} name={name}></Icon></span>
-            <Input type={type}></Input>
+             <span className="icon"> <Icon  type={variant} logo={logo}></Icon></span>
+            <Input type={type} name={name}></Input>
             <Label>{label}</Label>
 
         </div>

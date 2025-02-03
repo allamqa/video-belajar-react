@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 const ButtonForm = (props) =>{
 
-    const{variant,children,link} = props;
+    const{variant,onClick = () => {},type="button",children} = props;
 
     return(
-        <Link to={link}><button type="submit" className={variant}>{children}</button></Link>
+        <button type="submit" onClick={() => onClick()} className={variant}>{children}</button>
     );
 }
 
