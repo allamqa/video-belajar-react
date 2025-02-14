@@ -2,8 +2,12 @@ import InputForm from "../Elements/Input";
 import LabelRemember from "../Elements/Label/LabelRemember";
 import ButtonForm from "../Elements/Button";
 import Icon from "../Elements/Icon";
+import { useDispatch} from "react-redux";
+import { addToProfile } from "../../redux/slices/profileSlices";
 
 const FormLogin = () =>{
+   
+    const dispatch = useDispatch();
 
     const handleLogin = (event) =>{
         event.preventDefault();
@@ -11,7 +15,8 @@ const FormLogin = () =>{
             email: event.target.email.value,
             password: event.target.password.value
           };
-         localStorage.setItem('loginData', JSON.stringify(loginData));
+          localStorage.setItem("profile", JSON.stringify(loginData));
+         dispatch(addToProfile(loginData));
         window.location.href="/home";
     };
     

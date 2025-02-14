@@ -1,15 +1,15 @@
 import Icon from "../Icon"
 import 'boxicons'
-const Card = (props) =>{
-    const {gambar,harga,judul,waktu} = props;
+const Card = ({product}) =>{
+   
     return(
         
              <div className="row">
-                <img src={gambar} alt=""></img>
+                <img src={product.thumbnail} alt=""></img>
                 <div className="course-text">
-                    <h5>{harga}</h5>
-                    <h3>{judul}</h3>
-                    <h6>{waktu}</h6>
+                    <h5>{product.title}</h5>
+                    <h3>{`$ ${product.price}`}</h3>
+                    <h6>{product.description}</h6>
                     <div className="rating">
                         <div className="star">
                             <a href="#"><Icon color="#f66962" type="solid" logo="star"></Icon></a>

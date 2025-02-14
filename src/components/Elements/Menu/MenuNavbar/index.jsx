@@ -2,13 +2,18 @@ import 'boxicons';
 import Icon from "../../Icon";
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { useSelector } from "react-redux";
 
 const MenuNav = () => {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const profile = useSelector((state) => state.profile.data);
+    const [profilePicture, setProfilePicture] = useState(profile.profilePicture);
 
-    const [profilePicture, setProfilePicture] = useState("public/img/avatar2.png"); 
-
+    useEffect(() => {
+        setProfilePicture(profile.profilePicture);
+      }, [profile.profilePicture]);
+      
     useEffect(() => {
         const updateProfilePicture = () => {
             const storedProfile = localStorage.getItem("userProfile");
