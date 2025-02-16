@@ -1,6 +1,6 @@
 import Navbar from "../Fragments/Navbar";
 import LogoNav from "../Elements/Logo";
-import MenuNav from "../Elements/Menu/MenuNavbar";
+// import MenuNav from "../Elements/Menu/MenuNavbar";
 import Hero from "../Fragments/Hero"
 import Course from "../Fragments/Course";
 import Cta from "../Fragments/Cta";
@@ -10,7 +10,7 @@ const HomeLayouts = () =>{
         <div id="home-page">
         <Navbar>
             <LogoNav></LogoNav>
-            <MenuNav></MenuNav>
+            {/* <MenuNav></MenuNav> */}
         </Navbar>
         <Hero></Hero>
         <Course></Course>

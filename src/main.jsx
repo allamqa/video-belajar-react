@@ -8,7 +8,6 @@ import ProfilPage from './pages/profil.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
 import AdminPage from './pages/admin.jsx'
-import FormUpdateProduct from './components/Fragments/FormUpdateProduct.jsx'
 
 
 
@@ -33,14 +32,8 @@ const router = createBrowserRouter([
     path:"/admin",
     element: <AdminPage></AdminPage>
   },
-  {
-    path:"/admin",
-    element: <AdminPage></AdminPage>
-  },
-  {
-    path:"/update/:id",
-    element: <FormUpdateProduct></FormUpdateProduct>
-  }
+ 
+ 
 
   
 ]);

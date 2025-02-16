@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputFormAdmin from "../Elements/Input/Admin/InputFormAdmin";
 import TextArea from "../Elements/Input/Admin/TextArea";
 
-const FormProduct = ({product,handleUpdate,handleInputChange,isEdit,handleSubmit,descriptionRef}) =>{
+const FormProduct = ({product,handleUpdate,handleInputChange,isEdit,handleSubmit,form}) =>{
   
 
   
@@ -34,7 +34,7 @@ const FormProduct = ({product,handleUpdate,handleInputChange,isEdit,handleSubmit
           </>
            : 
            <>
-          <form onSubmit={handleSubmit} >
+          <form ref={form} onSubmit={handleSubmit} >
           <h2 className="text-xl font-bold mb-4">Create New Product</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <InputFormAdmin type="text" name="title" handleInputChange={handleInputChange}  label="Title" />

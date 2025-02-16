@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
 import {  deleteProduct, fetchDataCall } from "../../../service/products.service";
+import { useSelector } from "react-redux";
 
 
 
 
 const TableProduct = ({getDataById}) =>{
 
-  const [dataProducts,setDataProducts] = useState([]);
+  const product = useSelector((state) => state.product.product);
+  const [products, setProducts] = useState([product]);
 
       const fetchData = async () => {
          
         const data = await fetchDataCall();
-        setDataProducts(data.data.products);
+        if(!products.length){
+          localStorage.setItem("product", JSON.stringify(data));
+          setProducts(data);
+        }
+      
+        
          };
 
          const handleDelete =  (id) => {
@@ -22,6 +29,15 @@ const TableProduct = ({getDataById}) =>{
       useEffect(() => {
           fetchData();
       }, []);
+
+      useEffect(() => {
+        const productData = localStorage.getItem("product");
+        setProducts(productData ? JSON.parse(productData) : []);
+        
+    }, [products]);
+
+    
+
     
     return(
         <table className="w-full table-auto">
@@ -35,7 +51,7 @@ const TableProduct = ({getDataById}) =>{
         </tr>
       </thead>
       <tbody>
-      {dataProducts.map((item,index)=> (
+      {products.map((item,index)=> (
                  <tr key={index}>
                  <td className="border px-4 py-2">{item.id}</td>
                  <td className="border px-4 py-2 font-bold">{item.title}</td>

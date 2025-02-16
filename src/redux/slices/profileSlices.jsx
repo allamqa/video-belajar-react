@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const profileSlice = createSlice({
     name:"profile",
     initialState:{
-        data: JSON.parse(localStorage.getItem("profile")) || {},
+        data:JSON.parse(localStorage.getItem("profile")) || {},
     },reducers:{
         addToProfile: (state, action) => {
             state.data = { ...state.data, ...action.payload };

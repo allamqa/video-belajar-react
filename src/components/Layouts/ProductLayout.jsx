@@ -1,23 +1,30 @@
 
 
-import {  useState } from "react";
+import {  useRef, useState } from "react";
 import { addDataProduct, fetchSingleData, updateProduct } from "../../service/products.service";
 import FormProduct from "../Fragments/FormProduct";
 import ProductList from "../Fragments/ProductList";
 import Sidebar from "../Fragments/Sidebar";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/slices/productSlice";
 
 
 
 const ProductLayout = () => {
+ 
+  const dispatch = useDispatch();
   const [isEdit, setIsEdit] = useState(false);
       const [product,setProduct] = useState({
+        id: null,
              title:'',
              price:'',
              thumbnail:'',
              description:'',
          });
 
+         const form = useRef(null);
 
+        
    
 
      const getDataById =  (id) => {
@@ -50,7 +57,7 @@ const ProductLayout = () => {
                     console.log(response.data);
                 
                     alert('Product updated successfully!');
-                    e.target.reset();
+                    
                 } catch (err) {
                     console.error(err);
                     alert('Error updating product: ' + err.message);
@@ -59,24 +66,30 @@ const ProductLayout = () => {
 
             const handleSubmit = async (e) => {
               e.preventDefault();
+              console.log(product.id);
               try {
                 const response = await addDataProduct(product);
+                dispatch(addProduct(response));
                 console.log(response)
                 alert('Data berhasil ditambahkan!');
                
-                e.target.reset();
+               
               } catch (err) {
                 console.error(err);
                 alert('Error menambahkan data: ' + err.message);
               }
+
+              form.current.reset();
             };
 
+            
+            
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row">
                    <Sidebar></Sidebar>
                     <main className="w-full md:w-3/4 p-4 md:p-8">
-                        <FormProduct handleSubmit={handleSubmit} isEdit={isEdit} product={product} handleInputChange={handleInputChange} handleUpdate={handleUpdate}></FormProduct>
+                        <FormProduct form={form} handleSubmit={handleSubmit} isEdit={isEdit} product={product} handleInputChange={handleInputChange} handleUpdate={handleUpdate}></FormProduct>
                        <ProductList getDataById={getDataById}></ProductList>
                     </main>
                 </div>

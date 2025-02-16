@@ -4,7 +4,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const fetchDataCall = async () => {
     try {
         const res = await axios.get(`${BASE_URL}/products`);
-        return res
+        return res.data.products;
     } catch (error) {
         console.error("Error fetching data:", error);
         throw error; 
@@ -15,7 +15,7 @@ export const addDataProduct = async (values) => {
     try {
         const res = await axios.post(`${BASE_URL}/products/add`, values);
         console.log(res);
-        return res
+        return res.data;
     } catch (error) {
         console.error("Error adding product:", error);
         throw error; 

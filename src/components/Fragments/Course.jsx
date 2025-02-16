@@ -1,15 +1,18 @@
+import { fetchDataCall } from "../../service/products.service";
 import Card from "../Elements/Card";
 import LabelJudul from "../Elements/Label/LabelJudul";
 import List from "../Elements/List/List";
 import { useEffect, useState } from "react";
-import { fetchDataCall } from "../../service/products.service";
+
+
+
 const Course = () =>{
-    
-const [dataProducts,setDataProducts] = useState([]);
+
+    const [dataProducts,setDataProducts]= useState([]);
     const fetchData = async () => {
        
       const data = await fetchDataCall();
-      setDataProducts(data.data.products);
+      setDataProducts(data);
        };
     
 
