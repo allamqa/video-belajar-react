@@ -1,45 +1,29 @@
-import { useEffect, useState } from "react";
-import {  deleteProduct, fetchDataCall } from "../../../service/products.service";
+import PropTypes from 'prop-types';
 import { useSelector } from "react-redux";
+import Pagination from '../../../pagination';
+import { useState } from 'react';
 
 
 
+const TableProduct = ({getDataById,handleDelete}) => {
 
-const TableProduct = ({getDataById}) =>{
+  const products = useSelector((state) => state.product.product);
+  const [currentPage, setCurrentPage] = useState(1);
+      const [postPerPage, setPostPerPage] = useState(5);
 
-  const product = useSelector((state) => state.product.product);
-  const [products, setProducts] = useState([product]);
+      const lastPostIndex = currentPage * postPerPage;
+      const firstPostIndex = lastPostIndex - postPerPage;
+      const currentPosts = products.slice(firstPostIndex, lastPostIndex);
 
-      const fetchData = async () => {
-         
-        const data = await fetchDataCall();
-        if(!products.length){
-          localStorage.setItem("product", JSON.stringify(data));
-          setProducts(data);
-        }
-      
-        
-         };
 
-         const handleDelete =  (id) => {
-              deleteProduct(id);
-              console.log(id)
-         }
-      
-      useEffect(() => {
-          fetchData();
-      }, []);
+  
 
-      useEffect(() => {
-        const productData = localStorage.getItem("product");
-        setProducts(productData ? JSON.parse(productData) : []);
-        
-    }, [products]);
 
     
 
     
     return(
+      <>
         <table className="w-full table-auto">
       <thead>
         <tr className="bg-gray-100">
@@ -51,7 +35,7 @@ const TableProduct = ({getDataById}) =>{
         </tr>
       </thead>
       <tbody>
-      {products.map((item,index)=> (
+      {currentPosts.map((item,index)=> (
                  <tr key={index}>
                  <td className="border px-4 py-2">{item.id}</td>
                  <td className="border px-4 py-2 font-bold">{item.title}</td>
@@ -63,10 +47,19 @@ const TableProduct = ({getDataById}) =>{
                  </td>
                </tr>
             ))}
-       
+            
+
+           
       </tbody>
     </table>
+ <Pagination totalPost={products.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} ></Pagination>
+       
+ </>
     );
 }
+
+TableProduct.propTypes = {
+  getDataById: PropTypes.func.isRequired
+};
 
 export default TableProduct;

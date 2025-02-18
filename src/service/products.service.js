@@ -34,7 +34,7 @@ export const fetchSingleData = async (id) => {
 
 export const updateProduct = async (id, values) => {
     try {
-        const res = await axios.put(`${BASE_URL}/products/${id}`, values);
+        const res = await axios.patch(`${BASE_URL}/products/${id}`, values);
         console.log(res);
         return res
     } catch (error) {
@@ -42,6 +42,7 @@ export const updateProduct = async (id, values) => {
         throw error; 
     }
 }
+
 
 
 export const deleteProduct = async (id) => {

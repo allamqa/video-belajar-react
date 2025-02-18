@@ -10,9 +10,9 @@ const FormProduct = ({product,handleUpdate,handleInputChange,isEdit,handleSubmit
     return(
       
         <section className="bg-white p-6 rounded shadow-md mb-8">
-          {(isEdit == true) ?
+          {(isEdit === true) ?
           <> 
-          <form onSubmit={e => handleUpdate(e,product.id)}>
+          <form ref={form} onSubmit={e => handleUpdate(e,product.id)}>
           <h2 className="text-xl font-bold mb-4">Update Product</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <InputFormAdmin type="text" name="title" handleInputChange={handleInputChange} value={product.title} label="Title" />

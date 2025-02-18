@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import profileReducer from "./slices/profileSlices";
 import productReducer from "./slices/productSlice";
 
 
 const store = configureStore({
-    reducer: {product:productReducer},
+    reducer: {product:productReducer,profile:profileReducer},
 });
 
 store.subscribe(() => {

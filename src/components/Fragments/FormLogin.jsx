@@ -13,7 +13,8 @@ const FormLogin = () =>{
         event.preventDefault();
         const loginData = {
             email: event.target.email.value,
-            password: event.target.password.value
+            password: event.target.password.value,
+            profilePicture : "public/img/avatar.png"
           };
           localStorage.setItem("profile", JSON.stringify(loginData));
          dispatch(addToProfile(loginData));

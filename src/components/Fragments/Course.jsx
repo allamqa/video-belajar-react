@@ -1,25 +1,39 @@
-import { fetchDataCall } from "../../service/products.service";
+import { useEffect, useState } from "react";
 import Card from "../Elements/Card";
 import LabelJudul from "../Elements/Label/LabelJudul";
 import List from "../Elements/List/List";
-import { useEffect, useState } from "react";
+import Pagination from "../../pagination";
+import { fetchDataCall } from "../../service/products.service";
 
 
 
 const Course = () =>{
+    const [products, setProducts] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage, setPostPerPage] = useState(9);
 
-    const [dataProducts,setDataProducts]= useState([]);
-    const fetchData = async () => {
-       
-      const data = await fetchDataCall();
-      setDataProducts(data);
-       };
-    
+    const getData = async () => {
+        try {
+          const response = await fetchDataCall();
+          console.log(response);
+         
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
     useEffect(() => {
-        fetchData();
+        const storedProducts = localStorage.getItem('product');
+        if (storedProducts) {
+            setProducts(JSON.parse(storedProducts));
+        }
+        getData();
     }, []);
-    
+
+    const lastPostIndex = currentPage * postPerPage;
+    const firstPostIndex = lastPostIndex - postPerPage;
+    const currentPosts = products.slice(firstPostIndex, lastPostIndex);
+
    
     return(
     <section className="course" id="course">
@@ -33,12 +47,13 @@ const Course = () =>{
         <List>Bisnis</List>
         </ul>
         </div>
-        <div className="course-content">
-            {dataProducts.map((item,index)=> (
+        <div className="course-content flex justify-center">
+            {currentPosts.map((item,index)=> (
                 <Card product={item} key={index}/>
             ))}
+           
         </div>
-        
+        <Pagination totalPost={products.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} ></Pagination>
         
     </section>
     );

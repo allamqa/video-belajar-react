@@ -68,6 +68,7 @@ const MenuNav = () => {
                     {isDropdownVisible && (
                         <div ref={dropdownRef} className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 py-3">
                             <Link to="/profil" className="block px-4 py-2 text-gray-800 hover:border-yellow-400 hover:bg-yellow-100 hover:text-yellow-600 my-1">Profil Saya</Link>
+                            <Link to="/admin" className="block px-4 py-2 text-gray-800 hover:border-yellow-400 hover:bg-yellow-100 hover:text-yellow-600 my-1">Admin</Link>
                             <Link to="/" onClick={handleLogout} className="block px-4 py-2 text-gray-800 hover:border-yellow-400 hover:bg-yellow-100 hover:text-yellow-600">Logout</Link>
                         </div>
                     )}
